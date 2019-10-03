@@ -87,5 +87,25 @@ to use:
     
         <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Private Delegate Function HwidGetCurrentEx(ByRef key As IntPtr, ByRef PID2 As IntPtr, ByVal addrHWID As Byte(), byteHWID As Byte(), ppbValue As IntPtr, cbValue As UInteger) As Integer
-    
+    <DllImport("kernel32", SetLastError:=True)>
+    Function LoadLibrary(ByVal lpFileName As String) As IntPtr
+    End Function
+    <DllImport("kernel32.dll")>
+    Public Function FreeLibrary(ByVal hModule As IntPtr) As Boolean
+    End Function
+    <DllImport("kernel32.dll", CharSet:=CharSet.Auto)>
+    Public Function GetModuleHandle(ByVal lpModuleName As String) As IntPtr
+    End Function
+    <StructLayout(LayoutKind.Sequential)>
+    Public Structure MODULEINFO
+        Public lpBaseOfDll As IntPtr
+        Public SizeOfImage As UInteger
+        Public EntryPoint As IntPtr
+    End Structure
+    <DllImport("psapi.dll", SetLastError:=True)>
+    Function GetModuleInformation(ByVal hProcess As IntPtr, ByVal hModule As IntPtr, ByRef lpmodinfo As MODULEINFO, ByVal cb As UInteger) As Boolean
+    End Function
+    <DllImport("kernel32.dll")>
+    Function GetCurrentProcess() As IntPtr
+    End Function
 ```
