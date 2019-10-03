@@ -84,4 +84,8 @@ to use:
         Next i
         Return matches
     End Function
+    
+        <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
+    Private Delegate Function HwidGetCurrentEx(ByRef key As IntPtr, ByRef PID2 As IntPtr, ByVal addrHWID As Byte(), byteHWID As Byte(), ppbValue As IntPtr, cbValue As UInteger) As Integer
+    
 ```
