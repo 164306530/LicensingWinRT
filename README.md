@@ -3,7 +3,7 @@
 For x64
 ```vb
 
-Dim HwidGetCurrentExSig() As Byte = New Byte() {&H48, &H8B, &HC4, &H4C, &H89, &H48, &H20, &H4C, &H89, &H40, &H18, &H89, &H50, &H10, &H48, &H89}
+        Dim HwidGetCurrentExSig() As Byte = New Byte() {&H48, &H8B, &HC4, &H4C, &H89, &H48, &H20, &H4C, &H89, &H40, &H18, &H89, &H50, &H10, &H48, &H89}
         Dim ActivateWindowsSig() As Byte = New Byte() {&H48, &H8B, &HC4, &H55, &H48, &H8D, &H68, &HA1, &H48, &H81, &HEC, &H0, &H1, &H0, &H0, &H48}
         Dim ConvertPartNumberToPfnSig() As Byte = New Byte() {&H40, &H55, &H53, &H56, &H57, &H41, &H54, &H41, &H56, &H41, &H57, &H48, &H8D, &HAC, &H24, &H10, &HFB, &HFF, &HFF, &H48}
         Dim ConvertPartNumberToPfnExSig() As Byte = New Byte() {&H4C, &H8B, &HDC, &H49, &H89, &H5B, &H8, &H49, &H89, &H6B, &H10, &H49, &H89, &H73, &H18, &H57, &H48, &H83, &HEC, &H30}
@@ -29,6 +29,10 @@ Dim HwidGetCurrentExSig() As Byte = New Byte() {&H48, &H8B, &HC4, &H4C, &H89, &H
         Dim SafeMulSig() As Byte = New Byte() {&H48, &H89, &H5C, &H24, &H8, &H48, &H89, &H74, &H24, &H18, &H89, &H54, &H24, &H10, &H57, &H48}
         Dim HwidCPUDataCollectorSig() As Byte = New Byte() {&H48, &H89, &H5C, &H24, &H10, &H55, &H48, &H8B, &HEC, &H48, &H83, &HEC, &H50, &H48, &H8B, &H5, &HC4, &H1A, &H8, &H0}
 
+```
+
+to use:
+```vb
  Dim pDll As IntPtr = LoadLibrary("LicensingWinRT.dll")
         If pDll <> IntPtr.Zero Then
             Dim hMod = GetModuleHandle("LicensingWinRT")
