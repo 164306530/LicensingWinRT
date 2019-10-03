@@ -85,7 +85,7 @@ to use:
         Return matches
     End Function
     
-        <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
+    <UnmanagedFunctionPointer(CallingConvention.Cdecl)>
     Private Delegate Function HwidGetCurrentEx(ByRef key As IntPtr, ByRef PID2 As IntPtr, ByVal addrHWID As Byte(), byteHWID As Byte(), ppbValue As IntPtr, cbValue As UInteger) As Integer
     <DllImport("kernel32", SetLastError:=True)>
     Function LoadLibrary(ByVal lpFileName As String) As IntPtr
